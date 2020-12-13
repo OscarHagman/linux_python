@@ -1,5 +1,5 @@
 import datetime
-from MVP_constants import TO_DO_LIST, TITLE, TEXT, DATE, error_message
+from MVP_constants import TITLE, TEXT, DATE, error_message, TO_DO_LIST
 
 
 def create_to_do() -> list:
@@ -21,7 +21,7 @@ def create_to_do() -> list:
             break
     print("Enter to-do text")
     text_to_do = multiline_input()
-    date_and_time = format_date_string(str(datetime.datetime.now()))
+    date_and_time = str(datetime.datetime.now())[:16]
     return [title_to_do, text_to_do, date_and_time]
 
 
@@ -43,6 +43,7 @@ def open_to_do(to_do_index: int) -> None:
     :param to_do_index: The index for what to-do to open
     :return: None
     """
+
     while True:
         to_do = TO_DO_LIST[to_do_index]
         print("To-do:", to_do[TITLE])
@@ -113,13 +114,3 @@ def multiline_input() -> str:
             break
     multiline_text = "\n".join(lines)
     return multiline_text
-
-
-def format_date_string(time_stamp: str) -> str:
-    """
-    Strips out the seconds and milliseconds from the time stamp
-    :param time_stamp: The time the user wants to format
-    :return: Date and time String as 'YYYY-MM-DD HH:MM'
-    """
-    index_for_split = len(time_stamp) - time_stamp[::-1].index(":") - 1
-    return time_stamp[:index_for_split]
