@@ -1,6 +1,6 @@
 # Simple to-do app
 
-### To-do python program and a shell script that turns any local python 3 applications to a command for linux
+### To-do python program and a shell script that turns the local python 3 applications to a command for linux
 
 ##### To install, follow these steps:
 
